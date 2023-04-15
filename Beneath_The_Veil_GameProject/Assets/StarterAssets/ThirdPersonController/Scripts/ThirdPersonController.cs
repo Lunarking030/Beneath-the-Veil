@@ -97,15 +97,6 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
-        private int _animIDBasicMelee;
-        private int _animIDSecondaryMeleeSword;
-        private int _animIDSecondaryMeleeAxe;
-        private int _animIDBasicStaff;
-        private int _animIDWeaponType;
-        private int _animIDSecondaryStaff;
-
-        //Game Manager
-        public GameManager gm;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -114,7 +105,6 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-        public GameObject Shooter;
 
         private const float _threshold = 0.01f;
 
@@ -169,9 +159,6 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-            BasicMeleeAttack();
-            SecondaryMeleeAttack();
-            CheckWeaponType();
         }
 
         private void LateUpdate()
@@ -186,35 +173,6 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
-            _animIDBasicMelee = Animator.StringToHash("BasicMelee");
-            _animIDWeaponType = Animator.StringToHash("WeaponType");
-            _animIDSecondaryMeleeSword = Animator.StringToHash("SecondaryMeleeSword");
-            _animIDSecondaryMeleeAxe = Animator.StringToHash("SecondaryMeleeAxe");
-            _animIDBasicStaff = Animator.StringToHash("BasicStaff");
-            _animIDSecondaryStaff = Animator.StringToHash("SecondaryStaff");
-        }
-
-        private void CheckWeaponType()
-        {
-            if (gm.gameObject.GetComponent<GameManager>().currentWeapon == "Axe")
-            {
-                _animator.SetFloat(_animIDWeaponType, 1f);
-            }
-
-            else if (gm.gameObject.GetComponent<GameManager>().currentWeapon == "Sword")
-            {
-                _animator.SetFloat(_animIDWeaponType, 2f);
-            }
-
-            else if (gm.gameObject.GetComponent<GameManager>().currentWeapon == "Staff")
-            {
-                _animator.SetFloat(_animIDWeaponType, 3f);
-            }
-
-            else
-            {
-                _animator.SetFloat(_animIDWeaponType, 10f);
-            }
         }
 
         private void GroundedCheck()
@@ -318,55 +276,6 @@ namespace StarterAssets
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-            }
-        }
-
-        private void BasicMeleeAttack()
-        {
-            if (Input.GetMouseButtonDown(0) && (_animator.GetFloat(_animIDWeaponType) == 1f || _animator.GetFloat(_animIDWeaponType) == 2f)) // basic melee for sword & axe
-            {
-                if (_hasAnimator)
-                {
-                    _animator.SetTrigger(_animIDBasicMelee);
-                }
-            }
-
-            else
-            if (Input.GetMouseButtonDown(0) && _animator.GetFloat(_animIDWeaponType) == 3f) // basic attack for staff
-            {
-                if (_hasAnimator)
-                {
-                    _animator.SetTrigger(_animIDBasicStaff);
-                    //Shooter.gameObject.GetComponent<Shooter>().FireBall();
-                }
-            }
-        }
-
-        private void SecondaryMeleeAttack()
-        {
-            if (Input.GetMouseButtonDown(1) && _animator.GetFloat(_animIDWeaponType) == 2f) // Set of secondary sword animation
-            {
-                if (_hasAnimator)
-                {
-                    _animator.SetTrigger(_animIDSecondaryMeleeSword);
-                }
-            }
-
-            else if (Input.GetMouseButtonDown(1) && _animator.GetFloat(_animIDWeaponType) == 1f) // Set of secondary axe animation
-            {
-                if (_hasAnimator)
-                {
-                    _animator.SetTrigger(_animIDSecondaryMeleeAxe);
-                }
-            }
-
-            else if (Input.GetMouseButtonDown(1) && _animator.GetFloat(_animIDWeaponType) == 3f) // Set off secondary staff animation
-            {
-                if (_hasAnimator)
-                {
-                    _animator.SetTrigger(_animIDSecondaryStaff);
-                    //Shooter.gameObject.GetComponent<Shooter>().FireBall();
-                }
             }
         }
 
