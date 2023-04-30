@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelLoader : MonoBehaviour
 {
 
-
+    public GameObject MainCanvas;
     public GameObject LoadingScreen;
     public Slider slider;
     public Text ProgressText;
@@ -24,7 +24,7 @@ public class LevelLoader : MonoBehaviour
 
 
         LoadingScreen.SetActive(true);
-
+        MainCanvas.SetActive(false);
 
         while (!operation.isDone)
         {
