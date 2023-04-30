@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     //For PC, remove public so that this function is paused when clicking the Escape Key
-     public void Pause()
+    void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
