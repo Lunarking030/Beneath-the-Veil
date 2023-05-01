@@ -1,47 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
 public class EnemyAI : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    public NavMeshAgent navMeshAgent;               //  Nav mesh agent component
+    public float startWaitTime = 4;                 //  Wait time of every action
+    public float timeToRotate = 2;                  //  Wait time when the enemy detect near the player without seeing
+    public float speedWalk = 6;                     //  Walking speed, speed in the nav mesh agent
+    public float speedRun = 9;                      //  Running speed
 
-    public Transform player;
+    public float viewRadius = 15;                   //  Radius of the enemy view
+    public float viewAngle = 90;                    //  Angle of the enemy view
+    public LayerMask playerMask;                    //  To detect the player with the raycast
+    public LayerMask obstacleMask;                  //  To detect the obstacules with the raycast
+    public float meshResolution = 1.0f;             //  How many rays will cast per degree
+    public int edgeIterations = 4;                  //  Number of iterations to get a better performance of the mesh filter when the raycast hit an obstacule
+    public float edgeDistance = 0.5f;               //  Max distance to calcule the a minumun and a maximum raycast when hits something
 
-    public LayerMask whatIsGround, whatIsPlayer;
 
-    public float health;
+    public Transform[] waypoints;                   //  All the waypoints where the enemy patrols
+    int m_CurrentWaypointIndex;                     //  Current waypoint where the enemy is going to
 
-    //Patroling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
+    Vector3 playerLastPosition = Vector3.zero;      //  Last position of the player when was near the enemy
+    Vector3 m_PlayerPosition;                       //  Last position of the player when the player is seen by the enemy
 
-    //Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
+    float m_WaitTime;                               //  Variable of the wait time that makes the delay
+    float m_TimeToRotate;                           //  Variable of the wait time to rotate when the player is near that makes the delay
+    bool m_playerInRange;                           //  If the player is in range of vision, state of chasing
+    bool m_PlayerNear;                              //  If the player is near, state of hearing
+    bool m_IsPatrol;                                //  If the enemy is patrol, state of patroling
+    bool m_CaughtPlayer;                            //  if the enemy has caught the player
 
-    //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
-    private void Awake()
+    void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
-        agent = GetComponent<NavMeshAgent>();
+        m_PlayerPosition = Vector3.zero;
+        m_IsPatrol = true;
+        m_CaughtPlayer = false;
+        m_playerInRange = false;
+        m_PlayerNear = false;
+        m_WaitTime = startWaitTime;                 //  Set the wait time variable that will change
+        m_TimeToRotate = timeToRotate;
+
+        m_CurrentWaypointIndex = 0;                 //  Set the initial waypoint
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        navMeshAgent.isStopped = false;
+        navMeshAgent.speed = speedWalk;             //  Set the navemesh speed with the normal speed of the enemy
+        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the destination to the first waypoint
     }
 
     private void Update()
     {
-        //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
 
-<<<<<<< Updated upstream
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
-=======
         if (!m_IsPatrol)
         {
             Chasing();
@@ -55,7 +67,7 @@ public class EnemyAI : MonoBehaviour
     private void Chasing()
     {
         //  The enemy is chasing the player
-        m_PlayerNear = false;                       //  Set false that the player is near beacause the enemy already sees the player
+        m_PlayerNear = false;                       //  Set false that hte player is near beacause the enemy already sees the player
         playerLastPosition = Vector3.zero;          //  Reset the player near position
 
         if (!m_CaughtPlayer)
@@ -83,87 +95,63 @@ public class EnemyAI : MonoBehaviour
                 m_WaitTime -= Time.deltaTime;
             }
         }
->>>>>>> Stashed changes
     }
 
     private void Patroling()
     {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-    private void SearchWalkPoint()
-    {
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-    }
-
-    private void ChasePlayer()
-    {
-        agent.SetDestination(player.position);
-    }
-
-    private void AttackPlayer()
-    {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
-
-        gameObject.GetComponent<Animator>().Play("Attack");
-
-        if (!alreadyAttacked)
+        if (m_PlayerNear)
         {
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            ///End of attack code
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            //  Check if the enemy detect near the player, so the enemy will move to that position
+            if (m_TimeToRotate <= 0)
+            {
+                Move(speedWalk);
+                LookingPlayer(playerLastPosition);
+            }
+            else
+            {
+                //  The enemy wait for a moment and then go to the last player position
+                Stop();
+                m_TimeToRotate -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            m_PlayerNear = false;           //  The player is no near when the enemy is platroling
+            playerLastPosition = Vector3.zero;
+            navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the enemy destination to the next waypoint
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+            {
+                //  If the enemy arrives to the waypoint position then wait for a moment and go to the next
+                if (m_WaitTime <= 0)
+                {
+                    NextPoint();
+                    Move(speedWalk);
+                    m_WaitTime = startWaitTime;
+                }
+                else
+                {
+                    Stop();
+                    m_WaitTime -= Time.deltaTime;
+                }
+            }
         }
     }
-    private void ResetAttack()
+
+    private void OnAnimatorMove()
     {
-        alreadyAttacked = false;
+
     }
 
-    public void TakeDamage(int damage)
+    public void NextPoint()
     {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
+        m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
     }
 
-    private void OnDrawGizmosSelected()
+    void Stop()
     {
-<<<<<<< Updated upstream
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
-=======
         navMeshAgent.isStopped = true;
         navMeshAgent.speed = 0;
-        gameObject.GetComponent<Animator>().Play("Idle");
     }
 
     void Move(float speed)
@@ -208,7 +196,7 @@ public class EnemyAI : MonoBehaviour
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)
             {
-                float dstToPlayer = Vector3.Distance(transform.position, player.position);          //  Distance of the enemy and the player
+                float dstToPlayer = Vector3.Distance(transform.position, player.position);          //  Distance of the enmy and the player
                 if (!Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask))
                 {
                     m_playerInRange = true;             //  The player has been seeing by the enemy and then the nemy starts to chasing the player
@@ -238,6 +226,5 @@ public class EnemyAI : MonoBehaviour
                 m_PlayerPosition = player.transform.position;       //  Save the player's current position if the player is in range of vision
             }
         }
->>>>>>> Stashed changes
     }
 }
