@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 1000;
     public int currentHealth;
     public Scrollbar healthBar;
     public GameObject gameOverScreen;
@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            Time.timeScale = 0f;
+            // Freeze the movement of the camera or other relevant objects
         }
         else
         {
@@ -33,11 +35,13 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         gameOverScreen.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; // Pause the game
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        // Unfreeze the movement of the camera or other relevant objects
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1175,13 +1175,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: c1b62c31287ea414ab9a8ebfca62a21f, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 939933505}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1835,20 +1835,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.3574915, y: 3.65378, z: 6.80734}
   m_Center: {x: -0.051548958, y: 1.32689, z: 1.3708797}
---- !u!114 &66857512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66857505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77fce4f6fe0dc3e448d5e89f98ac79ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageIncreasePerSecond: 1
 --- !u!114 &66857514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12584,7 +12570,7 @@ MonoBehaviour:
   spawnPosition: {fileID: 66857504}
   numWaves: 3
   enemiesPerWave: 1
-  delayBetweenWaves: 25
+  delayBetweenWaves: 5
 --- !u!65 &1048603819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15928,7 +15914,7 @@ MonoBehaviour:
   acidPrefab: {fileID: 189881243}
   spitInterval: 2.5
   spitForce: 20
-  acidLifetime: 0.5
+  acidLifetime: 5
   damagePerSecond: 10
 --- !u!114 &1354685565
 MonoBehaviour:
@@ -16242,6 +16228,10 @@ PrefabInstance:
     - target: {fileID: 8047161636021232021, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_Name
       value: NestedParentArmature_Unpack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047161636021232021, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8047161636021232021, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: m_TagString

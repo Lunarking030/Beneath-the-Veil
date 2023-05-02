@@ -31,10 +31,10 @@ public class TriggerObjActive : MonoBehaviour
             enemy.SetActive(true);
         }
 
-        // spawn enemies in waves
+        // spawn enemies in waves, with increasing numbers of enemies per wave
         for (int wave = 0; wave < numWaves; wave++)
         {
-            for (int i = 0; i < enemiesPerWave; i++)
+            for (int i = 0; i < (enemiesPerWave + wave); i++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
                 enemy.SetActive(true);

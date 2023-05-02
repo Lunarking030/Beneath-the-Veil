@@ -63,7 +63,26 @@ public class AcidSpitter : MonoBehaviour
         // If the acid object is colliding with the player, damage them
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage((int)(damagePerSecond * Time.deltaTime));
+            StartCoroutine(DamagePlayer(other.gameObject.GetComponent<PlayerHealth>()));
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        // Stop damaging the player when they are no longer touching the acid
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    IEnumerator DamagePlayer(PlayerHealth playerHealth)
+    {
+        // Continuously damage the player while they are in contact with the acid
+        while (true)
+        {
+            playerHealth.TakeDamage((int)(damagePerSecond * Time.deltaTime));
+            yield return null;
         }
     }
 
@@ -84,6 +103,7 @@ public class AcidSpitter : MonoBehaviour
         {
             enabled = false;
             canSpit = false;
+            StopAllCoroutines();
         }
     }
 }
