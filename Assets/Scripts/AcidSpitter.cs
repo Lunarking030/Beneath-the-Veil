@@ -11,7 +11,7 @@ public class AcidSpitter : MonoBehaviour
     public float damagePerSecond = 10f; // How much damage the acid will do per second to the player
 
     private Transform player; // Reference to the player's transform
-    private bool canSpit = true; // Whether or not the enemy can currently spit acid
+    private bool canSpit = false; // Whether or not the enemy can currently spit acid
 
     void Start()
     {
@@ -64,25 +64,26 @@ public class AcidSpitter : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage((int)(damagePerSecond * Time.deltaTime));
-
         }
+    }
 
-        void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
+    {
+        // If the enemy enters the trigger zone, enable the AcidSpitter script and set canSpit to true
+        if (other.gameObject.CompareTag("Player"))
         {
-            // If the enemy enters the trigger zone, enable the AcidSpitter script
-            if (other.gameObject.CompareTag("Player"))
-            {
-                enabled = true;
-            }
+            enabled = true;
+            canSpit = true;
         }
+    }
 
-        void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
+    {
+        // If the enemy leaves the trigger zone, disable the AcidSpitter script and set canSpit to false
+        if (other.gameObject.CompareTag("Player"))
         {
-            // If the enemy leaves the trigger zone, disable the AcidSpitter script
-            if (other.gameObject.CompareTag("Player"))
-            {
-                enabled = false;
-            }
+            enabled = false;
+            canSpit = false;
         }
     }
 }
