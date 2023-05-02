@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1700,6 +1700,10 @@ PrefabInstance:
       propertyPath: m_CullingMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 993890654234544047, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2911597060502401786, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1762,7 +1766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2911597060502401789, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8633775175879651847, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11047,8 +11051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ff543ad00f9714c861d63a5ff3ea96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GmCanvas: {fileID: 980057328}
-  health: 100
 --- !u!114 &939933498
 MonoBehaviour:
   m_ObjectHideFlags: 0
