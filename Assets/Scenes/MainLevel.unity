@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1848,6 +1848,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
+  damageIncreasePerSecond: 1
+--- !u!114 &66857514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66857505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  regenRate: 1
 --- !u!1 &76015552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,6 +2985,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.1898327, y: 2.6652112, z: 5.982923}
   m_Center: {x: -0.58283395, y: 0.8326048, z: 0.2579279}
+--- !u!114 &249185807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249185791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  regenRate: 1
 --- !u!1001 &251058116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3080,6 +3109,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &251058122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251058118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 80
+  regenRate: 1
 --- !u!1 &270484776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5471,6 +5514,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &433068160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433068155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  regenRate: 1
 --- !u!1 &438104670
 GameObject:
   m_ObjectHideFlags: 0
@@ -15563,6 +15620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
+  damageIncreasePerSecond: 2
 --- !u!65 &1309157716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15592,6 +15650,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1309157718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309157710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  regenRate: 1
 --- !u!1 &1328139088
 GameObject:
   m_ObjectHideFlags: 0
@@ -15827,7 +15899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d41f7d82478dcd488c544685e1d935d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDistance: 5
+  enemyDistance: 6
 --- !u!65 &1354685560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15839,8 +15911,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 41.696053, y: 1, z: 17.486963}
-  m_Center: {x: 5.458968, y: 0, z: 8.243482}
+  m_Size: {x: 50.508842, y: 1, z: 29.527637}
+  m_Center: {x: 1.0525681, y: 0, z: 14.263817}
 --- !u!114 &1354685561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15854,10 +15926,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acidPrefab: {fileID: 189881243}
-  spitInterval: 3
+  spitInterval: 2.5
   spitForce: 20
   acidLifetime: 0.5
   damagePerSecond: 10
+--- !u!114 &1354685565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354685553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  regenRate: 1
 --- !u!1 &1371146307
 GameObject:
   m_ObjectHideFlags: 0
@@ -27874,6 +27960,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1978270384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978270377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db262cc3f698f4cb1f28b805247bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  regenRate: 1
 --- !u!1 &1992463206
 GameObject:
   m_ObjectHideFlags: 0
