@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1436,11 +1436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 2
+  numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 1978270377}
   spawnPosition: {fileID: 1978270376}
   numWaves: 5
-  enemiesPerWave: 2
+  enemiesPerWave: 1
   delayBetweenWaves: 25
 --- !u!65 &53360133
 BoxCollider:
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1309157710}
   spawnPosition: {fileID: 1309157711}
   numWaves: 3
-  enemiesPerWave: 2
+  enemiesPerWave: 0
   delayBetweenWaves: 25
 --- !u!65 &63117394
 BoxCollider:
@@ -1767,10 +1767,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 2150453190583948125, guid: caa21e9330b603d449900b3dd1466308, type: 3}
   fireballSpawnPoint: {fileID: 1509489491}
-  fireballSpeed: 10
+  fireballSpeed: 20
   fireRate: 1
   nextFireTime: 0
-  fireballLifetime: 3
+  fireballLifetime: 0.5
 --- !u!114 &66857507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d41f7d82478dcd488c544685e1d935d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDistance: 0.7
+  enemyDistance: 5
 --- !u!195 &66857508
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1818,7 +1818,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1995,6 +1995,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2911597060234219985, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2911597060502401786, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2051,6 +2055,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2911597060502401787, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1593943442}
     - target: {fileID: 2911597060502401789, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
       propertyPath: m_Name
       value: Bloated_Spectre
@@ -2059,11 +2067,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2911597060888555931, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3777315659942775772, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8633775175879651847, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f73e2a4e08809144b8ce20bce7455620, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2911597059970714854, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
 --- !u!1 &106664789
 GameObject:
@@ -2345,7 +2362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 2
+  numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 249185791}
   spawnPosition: {fileID: 249185792}
   numWaves: 2
@@ -2414,6 +2431,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171386133}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &189881243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6085074137579601320, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+  m_PrefabInstance: {fileID: 1049274077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &197266826
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,7 +9802,7 @@ GameObject:
   m_Name: FirstFloorWall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &800612442
@@ -10936,8 +10958,8 @@ GameObject:
   m_Name: Walls1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &937826823
 MeshCollider:
@@ -11364,6 +11386,22 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 551710994}
   gameOverScreen: {fileID: 980057328}
+--- !u!54 &939933512
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585038016}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &945053417
 GameObject:
   m_ObjectHideFlags: 0
@@ -12484,11 +12522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 1
+  numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 66857505}
   spawnPosition: {fileID: 66857504}
   numWaves: 3
-  enemiesPerWave: 2
+  enemiesPerWave: 1
   delayBetweenWaves: 25
 --- !u!65 &1048603819
 BoxCollider:
@@ -12553,6 +12591,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048603816}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1049274077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1354685554}
+    m_Modifications:
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 396.70734
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24.138462
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 421.40216
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826523213782129779, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085074137579601320, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
+      propertyPath: m_Name
+      value: Acidball
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3bf3491c32654ed45a4e618a4005ce59, type: 3}
 --- !u!1 &1056400726
 GameObject:
   m_ObjectHideFlags: 0
@@ -14419,8 +14526,8 @@ GameObject:
   m_Name: Walls2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1258405913
 MeshCollider:
@@ -15398,7 +15505,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -15456,6 +15563,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 10
+--- !u!65 &1309157716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309157710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1309157717
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309157710}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1328139088
 GameObject:
   m_ObjectHideFlags: 0
@@ -15667,7 +15803,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -15676,7 +15812,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 6
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1354685556
@@ -15691,7 +15827,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d41f7d82478dcd488c544685e1d935d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDistance: 2
+  enemyDistance: 5
+--- !u!65 &1354685560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354685553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 41.696053, y: 1, z: 17.486963}
+  m_Center: {x: 5.458968, y: 0, z: 8.243482}
+--- !u!114 &1354685561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354685553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b81573719f3e74aabfffe8b25d3b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acidPrefab: {fileID: 189881243}
+  spitInterval: 3
+  spitForce: 20
+  acidLifetime: 0.5
+  damagePerSecond: 10
 --- !u!1 &1371146307
 GameObject:
   m_ObjectHideFlags: 0
@@ -16225,11 +16391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 1
+  numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 251058118}
   spawnPosition: {fileID: 251058117}
   numWaves: 3
-  enemiesPerWave: 2
+  enemiesPerWave: 1
   delayBetweenWaves: 25
 --- !u!65 &1415349676
 BoxCollider:
@@ -17877,7 +18043,7 @@ GameObject:
   m_Name: FirstFloorWall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1534145402
@@ -18435,6 +18601,31 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1593943440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2641778757176488362, guid: 04f7a9876908a5f41adfac2b9668eaab, type: 3}
+  m_PrefabInstance: {fileID: 82967764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1593943442
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593943440}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5e10cb482ddf4e1448aba29c794128e2, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1596589036
 GameObject:
   m_ObjectHideFlags: 0
@@ -19806,7 +19997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722720678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 183.75229, y: 219.08754, z: -41.571625}
+  m_LocalPosition: {x: 183.75229, y: 219.08754, z: -42.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19825,11 +20016,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 1
-  enemyPrefab: {fileID: 1722720678}
-  spawnPosition: {fileID: 1722720679}
+  numEnemiesToSpawn: 0
+  enemyPrefab: {fileID: 1354685553}
+  spawnPosition: {fileID: 1354685554}
   numWaves: 3
-  enemiesPerWave: 0
+  enemiesPerWave: 1
   delayBetweenWaves: 25
 --- !u!65 &1722720681
 BoxCollider:
@@ -19842,8 +20033,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.656845, y: 3.0471745, z: 1}
-  m_Center: {x: -0.17880249, y: 1.0235872, z: 0}
+  m_Size: {x: 7.656845, y: 3.4623713, z: 1}
+  m_Center: {x: -0.17880249, y: 1.2311857, z: 0}
 --- !u!23 &1722720682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25364,11 +25555,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 2
+  numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 433068155}
   spawnPosition: {fileID: 433068154}
   numWaves: 5
-  enemiesPerWave: 2
+  enemiesPerWave: 1
   delayBetweenWaves: 25
 --- !u!65 &1795386480
 BoxCollider:
@@ -27654,6 +27845,35 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1978270381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978270377}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1978270382
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978270377}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1992463206
 GameObject:
   m_ObjectHideFlags: 0
@@ -27672,8 +27892,8 @@ GameObject:
   m_Name: Walls3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1992463207
 MeshCollider:
