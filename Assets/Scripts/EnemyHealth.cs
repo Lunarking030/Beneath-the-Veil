@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public string enemyName;
     public int maxHealth = 100;
     public float regenRate = 1.0f; // Health regenerated per second
     private int currentHealth;
     public Slider healthSlider;
+    public Text nameText;
 
     private void Start()
     {
         currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+        nameText.text = enemyName;
     }
 
     private void Update()
