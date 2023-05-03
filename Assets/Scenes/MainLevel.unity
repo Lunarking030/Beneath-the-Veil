@@ -1438,10 +1438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 1978270377}
-  spawnPosition: {fileID: 1978270376}
   numWaves: 5
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &53360133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1611,10 +1611,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 1
   enemyPrefab: {fileID: 1309157710}
-  spawnPosition: {fileID: 1309157711}
   numWaves: 3
   enemiesPerWave: 0
   delayBetweenWaves: 25
+  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &63117394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2365,10 +2365,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 249185791}
-  spawnPosition: {fileID: 249185792}
   numWaves: 2
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &171386136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12695,10 +12695,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 66857505}
-  spawnPosition: {fileID: 66857504}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 5
+  spawnRange: {x: 10, y: 0, z: 3}
 --- !u!65 &1048603819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16915,10 +16915,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 251058118}
-  spawnPosition: {fileID: 251058117}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &1415349676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20695,10 +20695,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 1354685553}
-  spawnPosition: {fileID: 1354685554}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &1722720681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26234,10 +26234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 433068155}
-  spawnPosition: {fileID: 433068154}
   numWaves: 5
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &1795386480
 BoxCollider:
   m_ObjectHideFlags: 0

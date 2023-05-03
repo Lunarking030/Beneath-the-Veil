@@ -6,13 +6,11 @@ public class EnemyMeleeDamage : MonoBehaviour
 {
     public int damageAmount = 10;  // The amount of damage the enemy deals
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))  // Check if the object is the player
+        if (collision.gameObject.CompareTag("Player"))  // Check if the object is the player
         {
-            other.GetComponent<PlayerHealth>().TakeDamage(damageAmount);  // Call the TakeDamage function on the player
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageAmount);  // Call the TakeDamage function on the player
         }
     }
 }
-
-

@@ -6,10 +6,10 @@ public class TriggerObjActive : MonoBehaviour
 {
     public int numEnemiesToSpawn;
     public GameObject enemyPrefab;
-    public Transform spawnPosition;
     public int numWaves;
     public int enemiesPerWave;
     public float delayBetweenWaves;
+    public Vector3 spawnRange;
 
     private bool isSpawning = false;
 
@@ -27,8 +27,7 @@ public class TriggerObjActive : MonoBehaviour
         // spawn initial batch of enemies
         for (int i = 0; i < numEnemiesToSpawn; i++)
         {
-            GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
-            enemy.SetActive(true);
+            SpawnEnemy();
         }
 
         // spawn enemies in waves, with increasing numbers of enemies per wave
@@ -36,8 +35,7 @@ public class TriggerObjActive : MonoBehaviour
         {
             for (int i = 0; i < (enemiesPerWave + wave); i++)
             {
-                GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
-                enemy.SetActive(true);
+                SpawnEnemy();
                 yield return new WaitForSeconds(0.5f); // delay between spawning enemies in a wave
             }
             yield return new WaitForSeconds(delayBetweenWaves); // delay between waves
@@ -45,5 +43,13 @@ public class TriggerObjActive : MonoBehaviour
 
         // set isSpawning to false so the trigger can be activated again
         isSpawning = false;
+    }
+
+    private void SpawnEnemy()
+    {
+        Vector3 spawnPosition = transform.position + new Vector3(Random.Range(-spawnRange.x, spawnRange.x), 0, Random.Range(-spawnRange.z, spawnRange.z));
+        Quaternion spawnRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, spawnRotation);
+        enemy.SetActive(true);
     }
 }
