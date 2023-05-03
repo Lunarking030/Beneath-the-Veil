@@ -30,20 +30,14 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthSlider.value = currentHealth;
-
-        if (currentHealth <= 0)
+        maxHealth -= damage;
+        if (maxHealth <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
     }
 
-    private void Die()
-    {
-        // Add code here for what happens when the enemy dies
-        Destroy(gameObject);
-    }
 }

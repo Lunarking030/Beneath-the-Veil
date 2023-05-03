@@ -9,15 +9,14 @@ public class Shooter : MonoBehaviour {
 	public GameObject projectile2;
 	public float power = 10.0f;
 	public GameObject gm;
+	public int damageAmount = 10; // Amount of damage dealt to enemy
 
 	// Reference to AudioClip to play
 	public AudioClip shootSFX;
 
 	IEnumerator Cooldown()
 	{
-		print(Time.time);
 		yield return new WaitForSeconds(5);
-		print(Time.time);
 	}
 
 	// Update is called once per frame
@@ -29,7 +28,7 @@ public class Shooter : MonoBehaviour {
 			// if projectile is specified
 			if (projectile1)
 			{
-				// Instantiante projectile at the camera + 1 meter forward with camera rotation
+				// Instantiate projectile at the camera + 1 meter forward with camera rotation
 				StartCoroutine(Cooldown());
 				GameObject newProjectile = Instantiate(projectile1, transform.position + transform.forward, transform.rotation) as GameObject;
 
@@ -65,7 +64,7 @@ public class Shooter : MonoBehaviour {
 			// if projectile is specified
 			if (projectile2)
 			{
-				// Instantiante projectile at the camera + 1 meter forward with camera rotation
+				// Instantiate projectile at the camera + 1 meter forward with camera rotation
 				StartCoroutine(Cooldown());
 				GameObject newProjectile = Instantiate(projectile2, transform.position + transform.forward, transform.rotation) as GameObject;
 
@@ -96,5 +95,19 @@ public class Shooter : MonoBehaviour {
 			}
 		}
 	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+
+		// Check if the collided object has an EnemyHealth component
+		if (enemy)
+		{
+			enemy.TakeDamage(damageAmount);
+		}
+
+		Destroy(gameObject); // Destroy the projectile on impact
+	}
+
 }
 
