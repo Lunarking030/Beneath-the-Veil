@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickupCyl
   - CinemachineTarget
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX

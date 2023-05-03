@@ -36,12 +36,23 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        healthSlider.value = 0f; // Set the health bar value to 0
-        gameOverScreen.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
-        gameObject.SetActive(false); // Disable the player GameObject
-        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-        Cursor.visible = true; // Make the cursor visible
+    healthSlider.value = 0f; // Set the health bar value to 0
+    gameOverScreen.SetActive(true);
+    Time.timeScale = 0f; // Pause the game
+    gameObject.SetActive(false); // Disable the player GameObject
+    Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+    Cursor.visible = true; // Make the cursor visible
+
+    // Stop the background music
+    GameObject musicObject = GameObject.FindGameObjectWithTag("BackgroundMusic");
+    if (musicObject != null)
+    {
+        AudioSource musicSource = musicObject.GetComponent<AudioSource>();
+        if (musicSource != null)
+        {
+            musicSource.Stop();
+        }
+    }
     }
 
     public void RestartLevel()
