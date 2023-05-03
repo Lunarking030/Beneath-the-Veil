@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6afb828de2102439291616f791afc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCanvas: {fileID: 0}
   LoadingScreen: {fileID: 1712898896}
   slider: {fileID: 2121971849}
   ProgressText: {fileID: 547462422}

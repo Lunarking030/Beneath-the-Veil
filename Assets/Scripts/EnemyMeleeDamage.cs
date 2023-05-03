@@ -10,7 +10,7 @@ public class EnemyMeleeDamage : MonoBehaviour
     {
         if (other.CompareTag("Player"))  // Check if the object is the player
         {
-            other.GetComponent<Player>().TakeDamage(damageAmount);  // Call the TakeDamage function on the player
+            other.GetComponent<PlayerHealth>().TakeDamage(damageAmount);  // Call the TakeDamage function on the player
         }
     }
 }
