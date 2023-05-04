@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class EnemyMeleeDamage : MonoBehaviour
 {
-    public int damageAmount = 10;  // The amount of damage the enemy deals
+    public int damagePerSecond = 10; // The amount of damage to deal to the player per second
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))  // Check if the object is the player
+        if (other.CompareTag("Player")) // Check if the object is the player
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageAmount);  // Call the TakeDamage function on the player
+            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null) // Check if the player has a PlayerHealth component
+            {
+                playerHealth.TakeDamage((int)(damagePerSecond * Time.deltaTime)); // Deal damage over time based on delta time
+            }
         }
     }
 }

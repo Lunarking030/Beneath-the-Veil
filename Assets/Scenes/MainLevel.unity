@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1438,10 +1438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 1978270377}
+  spawnPosition: {fileID: 1978270376}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
-  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &53360133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1611,10 +1611,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 1
   enemyPrefab: {fileID: 1309157710}
+  spawnPosition: {fileID: 1309157711}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 20
-  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &63117394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2368,10 +2368,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 249185791}
+  spawnPosition: {fileID: 249185792}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 20
-  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &171386136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3130,7 +3130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damagePerSecond: 10
 --- !u!1 &270484776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,7 +5593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damagePerSecond: 10
 --- !u!1 &438104670
 GameObject:
   m_ObjectHideFlags: 0
@@ -13032,10 +13032,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 1
   enemyPrefab: {fileID: 66857505}
+  spawnPosition: {fileID: 66857504}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
-  spawnRange: {x: 20, y: 0, z: -20}
 --- !u!1001 &1049274077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16134,7 +16134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damagePerSecond: 10
 --- !u!1 &1328139088
 GameObject:
   m_ObjectHideFlags: 0
@@ -17061,10 +17061,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 251058118}
+  spawnPosition: {fileID: 251058117}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
-  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &1415349676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20973,10 +20973,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 1354685553}
+  spawnPosition: {fileID: 1354685554}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 20
-  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &1722720681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26523,10 +26523,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 433068155}
+  spawnPosition: {fileID: 433068154}
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
-  spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &1795386480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28822,8 +28822,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.2874184, z: 1.4435315}
+  m_Center: {x: 7.4581097e-10, y: 0.6437092, z: 0.22176531}
 --- !u!54 &1978270382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28836,7 +28836,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -28857,7 +28857,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 1510282792}
   nameText: {fileID: 1356042847}
---- !u!114 &1978270386
+--- !u!114 &1978270388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28869,7 +28869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damagePerSecond: 10
 --- !u!1 &1992463206
 GameObject:
   m_ObjectHideFlags: 0

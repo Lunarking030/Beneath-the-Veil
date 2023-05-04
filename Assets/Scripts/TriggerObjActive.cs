@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class TriggerObjActive : MonoBehaviour
 {
     public int numEnemiesToSpawn;
     public GameObject enemyPrefab;
+    public Transform spawnPosition;
     public int numWaves;
     public int enemiesPerWave;
     public float delayBetweenWaves;
-    public Vector3 spawnRange;
 
     private bool isSpawning = false;
 
@@ -28,15 +27,17 @@ public class TriggerObjActive : MonoBehaviour
         // spawn initial batch of enemies
         for (int i = 0; i < numEnemiesToSpawn; i++)
         {
-            SpawnEnemy();
+            GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
+            enemy.SetActive(true);
         }
 
-        // spawn enemies in waves, with increasing numbers of enemies per wave
+        // spawn enemies in waves
         for (int wave = 0; wave < numWaves; wave++)
         {
-            for (int i = 0; i < (enemiesPerWave + wave); i++)
+            for (int i = 0; i < enemiesPerWave; i++)
             {
-                SpawnEnemy();
+                GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
+                enemy.SetActive(true);
                 yield return new WaitForSeconds(0.5f); // delay between spawning enemies in a wave
             }
             yield return new WaitForSeconds(delayBetweenWaves); // delay between waves
@@ -45,26 +46,4 @@ public class TriggerObjActive : MonoBehaviour
         // set isSpawning to false so the trigger can be activated again
         isSpawning = false;
     }
-
-    private void SpawnEnemy()
-    {
-        // Get the level boundaries
-        float minX = transform.position.x - spawnRange.x;
-        float maxX = transform.position.x + spawnRange.x;
-        float minZ = transform.position.z - spawnRange.z;
-        float maxZ = transform.position.z + spawnRange.z;
-
-        // Generate a random spawn position within the level boundaries
-        Vector3 spawnPosition = new Vector3(Random.Range(minX, maxX), 0, Random.Range(minZ, maxZ));
-
-        // Use NavMesh to find a valid spawn position
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(spawnPosition, out hit, 1.0f, NavMesh.AllAreas))
-        {
-            Quaternion spawnRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            GameObject enemy = Instantiate(enemyPrefab, hit.position, spawnRotation);
-            enemy.SetActive(true);
-        }
-    }
-
 }
