@@ -4,10 +4,15 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 1000;
+    public int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
     public GameObject gameOverScreen;
+    public float acidballDamageOverTime = 5f;
+    public float acidballDamageDuration = 2f;
+
+    public bool isTakingAcidDamage = false;
+    private float acidballDamageEndTime;
 
     private void Start()
     {
@@ -15,6 +20,14 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
         Time.timeScale = 1f;
+    }
+
+    private void Update()
+    {
+        if (isTakingAcidDamage && Time.time < acidballDamageEndTime)
+        {
+            TakeDamage(Mathf.RoundToInt(acidballDamageOverTime * Time.deltaTime));
+        }
     }
 
     public void TakeDamage(int damage)
@@ -34,25 +47,23 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void TakeAcidDamage()
     {
-    healthSlider.value = 0f; // Set the health bar value to 0
-    gameOverScreen.SetActive(true);
-    Time.timeScale = 0f; // Pause the game
-    gameObject.SetActive(false); // Disable the player GameObject
-    Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-    Cursor.visible = true; // Make the cursor visible
-
-    // Stop the background music
-    GameObject musicObject = GameObject.FindGameObjectWithTag("BackgroundMusic");
-    if (musicObject != null)
-    {
-        AudioSource musicSource = musicObject.GetComponent<AudioSource>();
-        if (musicSource != null)
+        if (!isTakingAcidDamage)
         {
-            musicSource.Stop();
+            isTakingAcidDamage = true;
+            acidballDamageEndTime = Time.time + acidballDamageDuration;
         }
     }
+
+    private void Die()
+    {
+        healthSlider.value = 0f; // Set the health bar value to 0
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0f; // Pause the game
+        gameObject.SetActive(false); // Disable the player GameObject
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+        Cursor.visible = true; // Make the cursor visible
     }
 
     public void RestartLevel()
