@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 1978270377}
-  numWaves: 5
+  numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
   spawnRange: {x: 0, y: 0, z: 0}
@@ -1612,7 +1612,7 @@ MonoBehaviour:
   numEnemiesToSpawn: 1
   enemyPrefab: {fileID: 1309157710}
   numWaves: 3
-  enemiesPerWave: 0
+  enemiesPerWave: 1
   delayBetweenWaves: 20
   spawnRange: {x: 0, y: 0, z: 0}
 --- !u!65 &63117394
@@ -2368,7 +2368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 249185791}
-  numWaves: 2
+  numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 20
   spawnRange: {x: 0, y: 0, z: 0}
@@ -3704,7 +3704,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293220552}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 72ca15068cc71ff4ea7c76a889275cfe, type: 2}
   m_audioClip: {fileID: 8300000, guid: 74974738a01c3a1439ee13dc5b5773e5, type: 3}
@@ -4396,7 +4396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 466174982370493815, guid: 7577e3de9babd604d9880ded032d1752, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3644406075498192761, guid: 7577e3de9babd604d9880ded032d1752, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12932,7 +12932,7 @@ GameObject:
   - component: {fileID: 1048603821}
   - component: {fileID: 1048603820}
   - component: {fileID: 1048603819}
-  - component: {fileID: 1048603818}
+  - component: {fileID: 1048603822}
   m_Layer: 0
   m_Name: Magician_spawner
   m_TagString: Untagged
@@ -12955,24 +12955,6 @@ Transform:
   m_Father: {fileID: 410087427}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1048603818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048603816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numEnemiesToSpawn: 0
-  enemyPrefab: {fileID: 66857505}
-  numWaves: 3
-  enemiesPerWave: 1
-  delayBetweenWaves: 10
-  spawnRange: {x: 10, y: 0, z: 3}
 --- !u!65 &1048603819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13036,6 +13018,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048603816}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1048603822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048603816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba40f708e4781a94f818b64fe7097013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemiesToSpawn: 1
+  enemyPrefab: {fileID: 66857505}
+  numWaves: 3
+  enemiesPerWave: 1
+  delayBetweenWaves: 25
+  spawnRange: {x: 20, y: 0, z: -20}
 --- !u!1001 &1049274077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16846,7 +16846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1678479538473202350, guid: ff6eb8e6a1d934f0391c79f5835492cc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff6eb8e6a1d934f0391c79f5835492cc, type: 3}
@@ -26523,7 +26523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 0
   enemyPrefab: {fileID: 433068155}
-  numWaves: 5
+  numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
   spawnRange: {x: 0, y: 0, z: 0}
