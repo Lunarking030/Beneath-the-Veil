@@ -1507,7 +1507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &63117392
 Transform:
   m_ObjectHideFlags: 0
@@ -2921,7 +2921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 100
+  damagePerTick: 1
+  timeBetweenTicks: 1
 --- !u!65 &251058126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5241,7 +5242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 100
+  damagePerTick: 1
+  timeBetweenTicks: 1
 --- !u!65 &433068164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10969,9 +10971,10 @@ MonoBehaviour:
   currentHealth: 0
   healthSlider: {fileID: 1534157184}
   gameOverScreen: {fileID: 980057328}
-  acidballDamageOverTime: 100
+  damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
+  acidballDamageOverTime: 10
   acidballDamageDuration: 10
-  isTakingAcidDamage: 1
+  isTakingAcidDamage: 0
 --- !u!1 &945053417
 GameObject:
   m_ObjectHideFlags: 0
@@ -11992,7 +11995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1048603817
 Transform:
   m_ObjectHideFlags: 0
@@ -15272,7 +15275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 100
+  damagePerTick: 100
+  timeBetweenTicks: 5
 --- !u!1 &1328139088
 GameObject:
   m_ObjectHideFlags: 0
@@ -27674,7 +27678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6899402922af14e80b762ee108c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 100
+  damagePerTick: 1
+  timeBetweenTicks: 1
 --- !u!1 &1992463206
 GameObject:
   m_ObjectHideFlags: 0

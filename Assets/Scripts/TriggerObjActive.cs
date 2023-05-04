@@ -34,13 +34,14 @@ public class TriggerObjActive : MonoBehaviour
         // spawn enemies in waves
         for (int wave = 0; wave < numWaves; wave++)
         {
+            yield return new WaitForSeconds(delayBetweenWaves); // delay between waves
+
             for (int i = 0; i < enemiesPerWave; i++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
                 enemy.SetActive(true);
                 yield return new WaitForSeconds(0.5f); // delay between spawning enemies in a wave
             }
-            yield return new WaitForSeconds(delayBetweenWaves); // delay between waves
         }
 
         // set isSpawning to false so the trigger can be activated again

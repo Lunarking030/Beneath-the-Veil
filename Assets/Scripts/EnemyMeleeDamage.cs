@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EnemyMeleeDamage : MonoBehaviour
 {
-    public int damagePerSecond = 10; // The amount of damage to deal to the player per second
+    public int damagePerTick = 1; // The amount of damage to deal to the player per tick
+    public float timeBetweenTicks = 1f; // The time in seconds between each damage tick
+
+    private float timer = 0f;
 
     private void OnTriggerStay(Collider other)
     {
@@ -14,7 +17,13 @@ public class EnemyMeleeDamage : MonoBehaviour
 
             if (playerHealth != null) // Check if the player has a PlayerHealth component
             {
-                playerHealth.TakeDamage((int)(damagePerSecond * Time.deltaTime)); // Deal damage over time based on delta time
+                timer += Time.deltaTime;
+
+                if (timer >= timeBetweenTicks) // Check if enough time has passed to deal damage
+                {
+                    playerHealth.TakeDamage(damagePerTick); // Deal damage
+                    timer = 0f; // Reset timer
+                }
             }
         }
     }

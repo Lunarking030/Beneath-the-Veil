@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Slider healthSlider;
     public GameObject gameOverScreen;
+    public GameObject damageText;
     public float acidballDamageOverTime = 5f;
     public float acidballDamageDuration = 2f;
 
@@ -33,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        indicator.SetDamageText(damage);
 
         if (currentHealth <= 0)
         {
@@ -45,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             healthSlider.value = currentHealth;
         }
+
     }
 
     public void TakeAcidDamage()
