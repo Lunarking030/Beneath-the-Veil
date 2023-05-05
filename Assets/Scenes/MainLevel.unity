@@ -1330,7 +1330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &53360131
 Transform:
   m_ObjectHideFlags: 0
@@ -1507,7 +1507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &63117392
 Transform:
   m_ObjectHideFlags: 0
@@ -1663,6 +1663,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f823cace02e98df4385acce1c469188a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: f823cace02e98df4385acce1c469188a, type: 3}
       propertyPath: m_Controller
       value: 
@@ -1778,6 +1782,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 319145266}
   nameText: {fileID: 1678479537280070662}
+  shooter: {fileID: 0}
 --- !u!1 &76015552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,6 +2787,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 1128813474}
   nameText: {fileID: 1754516180}
+  shooter: {fileID: 0}
 --- !u!1001 &251058116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2909,6 +2915,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 388702838}
   nameText: {fileID: 2069175997}
+  shooter: {fileID: 0}
 --- !u!114 &251058124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,6 +5237,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 1007126598}
   nameText: {fileID: 2040200367}
+  shooter: {fileID: 0}
 --- !u!114 &433068162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7488,12 +7496,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.919
       objectReference: {fileID: 0}
     - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.515
+      value: 0.605
       objectReference: {fileID: 0}
     - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7505,7 +7525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3664363329292710048, guid: 72a2d9fa0b87de34e96d38a685f6f8fb, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8099,6 +8119,10 @@ PrefabInstance:
     - target: {fileID: 100144, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100144, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
       propertyPath: m_RootOrder
@@ -11995,7 +12019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1048603817
 Transform:
   m_ObjectHideFlags: 0
@@ -13340,9 +13364,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon: Sword
-  AxePickup: {fileID: 1655657775}
-  SwordPickup: {fileID: 1285120386}
-  StaffPickup: {fileID: 776130517}
+  AxePickup: {fileID: 0}
+  SwordPickup: {fileID: 0}
+  StaffPickup: {fileID: 0}
   gm: {fileID: 1633492898}
 --- !u!1001 &1163280459
 PrefabInstance:
@@ -15263,6 +15287,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 2005275921}
   nameText: {fileID: 2122479286}
+  shooter: {fileID: 0}
 --- !u!114 &1309157719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15561,6 +15586,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 460501408}
   nameText: {fileID: 762385769}
+  shooter: {fileID: 0}
 --- !u!114 &1356042847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8143896535228318950, guid: ff6eb8e6a1d934f0391c79f5835492cc, type: 3}
@@ -18749,6 +18775,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1655657792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655657775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fdc30b1d4412440a078311d42e1574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 50
 --- !u!43 &1658317624
 Mesh:
   m_ObjectHideFlags: 0
@@ -25432,7 +25471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1795386478
 Transform:
   m_ObjectHideFlags: 0
@@ -27666,6 +27705,7 @@ MonoBehaviour:
   regenRate: 1
   healthSlider: {fileID: 1510282792}
   nameText: {fileID: 1356042847}
+  shooter: {fileID: 0}
 --- !u!114 &1978270388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30638,6 +30678,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1655657783, guid: d22b8a471be7d934996fcfa3b3856ca8, type: 3}
+      propertyPath: m_Size.x
+      value: 89.082054
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655657783, guid: d22b8a471be7d934996fcfa3b3856ca8, type: 3}
+      propertyPath: m_Size.z
+      value: 56.27607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655657783, guid: d22b8a471be7d934996fcfa3b3856ca8, type: 3}
+      propertyPath: m_Center.x
+      value: 9.856664
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655657783, guid: d22b8a471be7d934996fcfa3b3856ca8, type: 3}
+      propertyPath: m_Center.z
+      value: 28.138035
+      objectReference: {fileID: 0}
     - target: {fileID: 7479620706202497028, guid: d22b8a471be7d934996fcfa3b3856ca8, type: 3}
       propertyPath: m_Name
       value: AxePickup

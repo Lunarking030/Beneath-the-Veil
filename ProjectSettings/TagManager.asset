@@ -7,6 +7,9 @@ TagManager:
   - PickupCyl
   - CinemachineTarget
   - BackgroundMusic
+  - Enemy
+  - PlayerWeapon
+  - Projectile
   layers:
   - Default
   - TransparentFX

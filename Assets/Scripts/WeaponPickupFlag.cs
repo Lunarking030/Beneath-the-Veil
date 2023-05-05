@@ -10,17 +10,17 @@ public class WeaponPickupFlag : MonoBehaviour
     public GameObject SwordPickup;
     public GameObject StaffPickup;
     public GameObject gm;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class WeaponPickupFlag : MonoBehaviour
         if (other.gameObject.CompareTag("PickupCyl"))
         {
             other.gameObject.SetActive(false);
-            
+
             switch (Weapon)
             {
                 case "Axe":
@@ -54,4 +54,5 @@ public class WeaponPickupFlag : MonoBehaviour
             gm.gameObject.GetComponent<GameManager>().spawnWeapon();
         }
     }
+
 }

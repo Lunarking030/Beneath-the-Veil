@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class EnemyHealth : MonoBehaviour
 {
     public string enemyName;
@@ -10,7 +12,8 @@ public class EnemyHealth : MonoBehaviour
     public float regenRate = 1.0f; // Health regenerated per second
     private int currentHealth;
     public Slider healthSlider;
-    public Text nameText;
+    public UnityEngine.UI.Text nameText;
+    public Shooter shooter;
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
         nameText.text = enemyName;
+        shooter = GameObject.FindWithTag("Player").GetComponent<Shooter>();
     }
 
     private void Update()
@@ -30,14 +34,26 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-
     public void TakeDamage(int damage)
     {
-        maxHealth -= damage;
-        if (maxHealth <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
+        healthSlider.value = currentHealth;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            TakeDamage(shooter.damageAmount);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            TakeDamage(40); // Assuming a fixed damage value of 10 when hit by another enemy
+        }
+    }
 }

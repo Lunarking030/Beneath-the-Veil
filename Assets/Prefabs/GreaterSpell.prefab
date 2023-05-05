@@ -205,9 +205,10 @@ GameObject:
   - component: {fileID: 3894051598373869787}
   - component: {fileID: 342395258513181687}
   - component: {fileID: 4952027159430412301}
+  - component: {fileID: 1125429764982887515}
   m_Layer: 0
   m_Name: GreaterSpell
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,3 +323,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1125429764982887515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7346692257855548796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84956f2cf8b4de4c86014ff006518da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile1: {fileID: 0}
+  projectile2: {fileID: 0}
+  power: 10
+  gm: {fileID: 0}
+  damageAmount: 10
+  shootSFX: {fileID: 0}
