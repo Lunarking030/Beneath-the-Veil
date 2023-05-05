@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
     public Slider healthSlider;
     public UnityEngine.UI.Text nameText;
+    public GameObject damageText;
     public Shooter shooter;
 
     private void Start()
@@ -37,6 +38,9 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        indicator.SetDamageText(damage);
+
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4083409003924065660}
-  lifetime: 150
+  lifetime: 5
   minDist: -1
   maxDist: -0.1
   yourFontSize: 30

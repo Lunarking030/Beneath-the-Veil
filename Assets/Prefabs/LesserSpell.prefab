@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4366547732306105860}
   - component: {fileID: 5327482664232319523}
   - component: {fileID: 4429986823272203900}
-  - component: {fileID: 631232318724604866}
+  - component: {fileID: -7556617840998333791}
   m_Layer: 0
   m_Name: LesserSpell
   m_TagString: Projectile
@@ -225,7 +225,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &631232318724604866
+--- !u!114 &-7556617840998333791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,12 +234,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4366547732306105861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84956f2cf8b4de4c86014ff006518da, type: 3}
+  m_Script: {fileID: 11500000, guid: 77fce4f6fe0dc3e448d5e89f98ac79ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile1: {fileID: 4366547732306105861}
-  projectile2: {fileID: 7346692257855548796, guid: 21a9b38a9f33ee6458a9f3c137879125, type: 3}
-  power: 10
-  gm: {fileID: 0}
-  damageAmount: 20
-  shootSFX: {fileID: 0}
+  damageAmount: 10
+  damageIncreasePerSecond: 2
