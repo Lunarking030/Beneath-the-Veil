@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4083409003271440371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,10 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4083409003924065660}
-  lifetime: 25
-  minDist: 0.5
-  maxDist: 1
-  yourFontSize: 40
+  lifetime: 150
+  minDist: -1
+  maxDist: -0.1
+  yourFontSize: 30
 --- !u!1 &4083409003924065662
 GameObject:
   m_ObjectHideFlags: 0

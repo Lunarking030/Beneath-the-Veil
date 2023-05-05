@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DamageIndicator : MonoBehaviour
 {
     public Text text;
-    public float lifetime = 0.6f;
-    public float minDist = 2f;
-    public float maxDist = 3f;
+    public float lifetime = 6f;
+    public float minDist = 0.5f;
+    public float maxDist = 1f;
     public int yourFontSize = 24;
 
     private Vector3 iniPos;
@@ -20,9 +21,9 @@ public class DamageIndicator : MonoBehaviour
     {
         transform.LookAt(2 * transform.position - Camera.main.transform.position);
 
-        float direction = Random.rotation.eulerAngles.z;
+        float direction = UnityEngine.Random.rotation.eulerAngles.z;
         iniPos = transform.position;
-        float dist = Random.Range(minDist, maxDist);
+        float dist = UnityEngine.Random.Range(minDist, maxDist);
         targetPos = iniPos + (Quaternion.Euler(0, 0, direction) * new Vector3(dist, dist, 0f));
         transform.localScale = Vector3.zero;
         text.fontSize = yourFontSize;

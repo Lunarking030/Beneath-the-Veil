@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -57,7 +59,18 @@ public class PlayerHealth : MonoBehaviour
         {
             isTakingAcidDamage = true;
             acidballDamageEndTime = Time.time + acidballDamageDuration;
+            StartCoroutine(ApplyAcidDamageOverTime());
         }
+    }
+
+    private IEnumerator ApplyAcidDamageOverTime()
+    {
+        while (isTakingAcidDamage && Time.time < acidballDamageEndTime)
+        {
+            TakeDamage(Mathf.RoundToInt(acidballDamageOverTime * Time.deltaTime));
+            yield return null;
+        }
+        isTakingAcidDamage = false;
     }
 
     private void Die()
