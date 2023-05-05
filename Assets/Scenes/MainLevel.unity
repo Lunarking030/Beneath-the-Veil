@@ -1364,6 +1364,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  damageMultiplier: 1
 --- !u!65 &53360133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1541,6 +1542,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 20
+  damageMultiplier: 1
 --- !u!65 &63117394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1784,6 +1786,7 @@ MonoBehaviour:
   nameText: {fileID: 1678479537280070662}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 2
 --- !u!1 &76015552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2259,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 20
+  damageMultiplier: 1
 --- !u!65 &171386136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2794,6 +2798,7 @@ MonoBehaviour:
   nameText: {fileID: 1754516180}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 1
 --- !u!1001 &251058116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2927,6 +2932,7 @@ MonoBehaviour:
   nameText: {fileID: 2069175997}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 1
 --- !u!114 &251058124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5258,6 +5264,7 @@ MonoBehaviour:
   nameText: {fileID: 2040200367}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 1
 --- !u!114 &433068162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12136,6 +12143,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  damageMultiplier: 2
 --- !u!1 &1056400726
 GameObject:
   m_ObjectHideFlags: 0
@@ -14955,6 +14963,7 @@ MonoBehaviour:
   nameText: {fileID: 2122479286}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 1
 --- !u!114 &1309157719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15255,6 +15264,7 @@ MonoBehaviour:
   nameText: {fileID: 762385769}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 1
 --- !u!114 &1356042847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8143896535228318950, guid: ff6eb8e6a1d934f0391c79f5835492cc, type: 3}
@@ -15876,6 +15886,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  damageMultiplier: 1
 --- !u!65 &1415349676
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19645,6 +19656,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 0
   delayBetweenWaves: 20
+  damageMultiplier: 1
 --- !u!65 &1722720681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25173,6 +25185,7 @@ MonoBehaviour:
   numWaves: 3
   enemiesPerWave: 1
   delayBetweenWaves: 25
+  damageMultiplier: 1
 --- !u!65 &1795386480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27379,6 +27392,7 @@ MonoBehaviour:
   nameText: {fileID: 1356042847}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
   shooter: {fileID: 0}
+  damageMultiplier: 1
 --- !u!114 &1978270388
 MonoBehaviour:
   m_ObjectHideFlags: 0

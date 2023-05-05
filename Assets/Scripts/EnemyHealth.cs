@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public UnityEngine.UI.Text nameText;
     public GameObject damageText;
     public Shooter shooter;
+    public float damageMultiplier = 1.0f;
 
     private void Start()
     {
@@ -60,4 +61,12 @@ public class EnemyHealth : MonoBehaviour
             TakeDamage(40); // Assuming a fixed damage value of 10 when hit by another enemy
       }
     }
+
+    public void SetDamageMultiplier(float multiplier)
+    {
+        damageMultiplier = multiplier;
+    }
+
+
+
 }

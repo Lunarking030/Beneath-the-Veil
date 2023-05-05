@@ -10,6 +10,7 @@ public class TriggerObjActive : MonoBehaviour
     public int numWaves;
     public int enemiesPerWave;
     public float delayBetweenWaves;
+    public float damageMultiplier = 1.0f; // add a damage multiplier variable
 
     private bool isSpawning = false;
 
@@ -28,6 +29,7 @@ public class TriggerObjActive : MonoBehaviour
         for (int i = 0; i < numEnemiesToSpawn; i++)
         {
             GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
+            enemy.GetComponent<EnemyHealth>().SetDamageMultiplier(damageMultiplier); // set the damage multiplier
             enemy.SetActive(true);
         }
 
@@ -36,9 +38,12 @@ public class TriggerObjActive : MonoBehaviour
         {
             yield return new WaitForSeconds(delayBetweenWaves); // delay between waves
 
+            damageMultiplier += 0.2f; // increase the damage multiplier for each wave
+
             for (int i = 0; i < enemiesPerWave; i++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition.position, spawnPosition.rotation);
+                enemy.GetComponent<EnemyHealth>().SetDamageMultiplier(damageMultiplier); // set the damage multiplier
                 enemy.SetActive(true);
                 yield return new WaitForSeconds(0.5f); // delay between spawning enemies in a wave
             }
