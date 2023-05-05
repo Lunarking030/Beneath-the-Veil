@@ -55,9 +55,9 @@ public class EnemyHealth : MonoBehaviour
             TakeDamage(shooter.damageAmount);
             Destroy(other.gameObject);
         }
-        else if (other.CompareTag("Enemy"))
-        {
+       else if (other.CompareTag("Enemy"))
+       {
             TakeDamage(40); // Assuming a fixed damage value of 10 when hit by another enemy
-        }
+      }
     }
 }
