@@ -114,5 +114,4 @@ MonoBehaviour:
   projectile2: {fileID: 7346692257855548796, guid: 21a9b38a9f33ee6458a9f3c137879125, type: 3}
   power: 10
   gm: {fileID: 0}
-  damageAmount: 10
   shootSFX: {fileID: 0}

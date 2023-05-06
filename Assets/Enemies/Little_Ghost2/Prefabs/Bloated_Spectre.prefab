@@ -256,9 +256,6 @@ GameObject:
   - component: {fileID: 2919046851768694973}
   - component: {fileID: 2919046851768694974}
   - component: {fileID: 2919046851768694975}
-  - component: {fileID: -6017877516544831407}
-  - component: {fileID: -365872867297292403}
-  - component: {fileID: 209904839379194669}
   m_Layer: 0
   m_Name: Bloated_Spectre
   m_TagString: Untagged
@@ -312,61 +309,6 @@ CapsuleCollider:
   m_Height: 1.1666331
   m_Direction: 1
   m_Center: {x: 0.019093513, y: 0.56585956, z: -0.019093275}
---- !u!95 &-6017877516544831407
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919046851768694972}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4241ea30dbee19d46bc57a00b345d028, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8d8723631e475824fbfad41470d720be, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-365872867297292403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919046851768694972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d41f7d82478dcd488c544685e1d935d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyDistance: 4
---- !u!195 &209904839379194669
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2919046851768694972}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &4030309054944368101
 GameObject:
   m_ObjectHideFlags: 0
