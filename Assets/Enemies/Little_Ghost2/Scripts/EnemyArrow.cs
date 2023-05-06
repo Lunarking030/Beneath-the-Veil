@@ -28,9 +28,12 @@ public class EnemyArrow : MonoBehaviour
             {
                 Vector3 direction = (player.position - arrowSpawnPoint.position).normalized;
 
+                // rotate the arrow spawn point to face the player
+                arrowSpawnPoint.LookAt(player.position);
+
                 GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
 
-                arrow.GetComponent<Rigidbody>().velocity = direction * arrowSpeed;
+                arrow.GetComponent<Rigidbody>().velocity = arrowSpawnPoint.forward * arrowSpeed;
 
                 Destroy(arrow, arrowLifetime);
 
@@ -38,6 +41,7 @@ public class EnemyArrow : MonoBehaviour
             }
         }
     }
+
 
     void OnTriggerEnter(Collider other)
     {
