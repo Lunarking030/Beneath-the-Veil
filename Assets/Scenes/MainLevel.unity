@@ -23,9 +23,9 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 2.1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -1785,7 +1785,6 @@ MonoBehaviour:
   healthSlider: {fileID: 319145266}
   nameText: {fileID: 1678479537280070662}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 2
 --- !u!1 &76015552
 GameObject:
@@ -2797,7 +2796,6 @@ MonoBehaviour:
   healthSlider: {fileID: 1128813474}
   nameText: {fileID: 1754516180}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 1
 --- !u!1001 &251058116
 PrefabInstance:
@@ -2931,7 +2929,6 @@ MonoBehaviour:
   healthSlider: {fileID: 388702838}
   nameText: {fileID: 2069175997}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 1
 --- !u!114 &251058124
 MonoBehaviour:
@@ -5263,7 +5260,6 @@ MonoBehaviour:
   healthSlider: {fileID: 1007126598}
   nameText: {fileID: 2040200367}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 1
 --- !u!114 &433068162
 MonoBehaviour:
@@ -14962,7 +14958,6 @@ MonoBehaviour:
   healthSlider: {fileID: 2005275921}
   nameText: {fileID: 2122479286}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 1
 --- !u!114 &1309157719
 MonoBehaviour:
@@ -15263,7 +15258,6 @@ MonoBehaviour:
   healthSlider: {fileID: 460501408}
   nameText: {fileID: 762385769}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 1
 --- !u!114 &1356042847 stripped
 MonoBehaviour:
@@ -27391,7 +27385,6 @@ MonoBehaviour:
   healthSlider: {fileID: 1510282792}
   nameText: {fileID: 1356042847}
   damageText: {fileID: 4083409003271440372, guid: c2f27066097eb9f4fbd5ec9a5c84845b, type: 3}
-  shooter: {fileID: 0}
   damageMultiplier: 1
 --- !u!114 &1978270388
 MonoBehaviour:
