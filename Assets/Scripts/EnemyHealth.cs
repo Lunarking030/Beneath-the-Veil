@@ -52,20 +52,17 @@ public class EnemyHealth : MonoBehaviour
             Shooter shooter = other.GetComponent<Shooter>();
             if (shooter != null)
             {
-                if (shooter.CompareTag("Player"))
+                if (shooter.CompareTag("Enemy"))
                 {
-                    TakeDamage(shooter.damageAmount);
+                    TakeDamage((int)(shooter.damageAmount * damageMultiplier));
                 }
             }
             Destroy(other.gameObject);
         }
-        
     }
 
     public void SetDamageMultiplier(float multiplier)
     {
         damageMultiplier = multiplier;
     }
-
-
 }

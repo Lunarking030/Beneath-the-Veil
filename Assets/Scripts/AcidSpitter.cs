@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Debug = UnityEngine.Debug;
 
 public class AcidSpitter : MonoBehaviour
 {
-    public GameObject fireballPrefab;
-    public Transform fireballSpawnPoint;
-    public float fireballSpeed = 10f;
+    public GameObject acidballPrefab;
+    public Transform acidballSpawnPoint;
+    public float acidballSpeed = 10f;
     public float fireRate = 1f;
     public float nextFireTime;
-    public float fireballLifetime = 3f;
+    public float acidballLifetime = 3f;
+    public float attackRange = 10f; // the range at which the AcidSpitter can attack the player
 
     private Transform player;
     private bool inRange; // variable to check if the player is in attack range
@@ -22,17 +24,17 @@ public class AcidSpitter : MonoBehaviour
 
     void Update()
     {
-        if (inRange)
+        if (inRange && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             if (Time.time >= nextFireTime)
             {
-                Vector3 direction = (player.position - fireballSpawnPoint.position).normalized;
+                Vector3 direction = (player.position - acidballSpawnPoint.position).normalized;
 
-                GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+                GameObject acidball = Instantiate(acidballPrefab, acidballSpawnPoint.position, Quaternion.identity);
 
-                fireball.GetComponent<Rigidbody>().velocity = direction * fireballSpeed;
+                acidball.GetComponent<Rigidbody>().velocity = direction * acidballSpeed;
 
-                Destroy(fireball, fireballLifetime);
+                Destroy(acidball, acidballLifetime);
 
                 nextFireTime = Time.time + fireRate;
             }
