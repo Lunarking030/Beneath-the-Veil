@@ -9,9 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject Axe;
     public GameObject Sword;
     public GameObject Staff;
-    private int score = 0;
-
-    public TMPro.TextMeshProUGUI scoreText;
+    public GameObject statKeeper;
 
     public void PlayGame()
     {
@@ -28,8 +26,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentWeapon = "";
-        // Initialize score text
-        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame
@@ -44,20 +40,19 @@ public class GameManager : MonoBehaviour
         {
             case "Axe":
                 Axe.SetActive(true);
+                statKeeper.gameObject.GetComponent<Stats>().damage = 15f;
+                statKeeper.gameObject.GetComponent<Stats>().secDamage = 25f;
                 break;
             case "Sword":
                 Sword.SetActive(true);
+                statKeeper.gameObject.GetComponent<Stats>().damage = 10f;
+                statKeeper.gameObject.GetComponent<Stats>().secDamage = 15f;
                 break;
             case "Staff":
                 Staff.SetActive(true);
+                statKeeper.gameObject.GetComponent<Stats>().damage = 5f;
+                statKeeper.gameObject.GetComponent<Stats>().secDamage = 20f;
                 break;
         }
-    }
-
-    // Call this method when an enemy is killed
-    public void EnemyKilled()
-    {
-        score += 10; // Increment score by 10
-        scoreText.text = score.ToString(); // Update score text
     }
 }
