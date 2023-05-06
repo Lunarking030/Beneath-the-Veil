@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
+    public Text healthText;
     public GameObject gameOverScreen;
     public GameObject damageText;
     public float acidballDamageOverTime = 5f;
@@ -23,6 +24,9 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
         Time.timeScale = 1f;
+
+        healthText = GameObject.Find("HealthText").GetComponent<Text>();
+        UpdateHealthText();
     }
 
     private void Update()
@@ -49,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             healthSlider.value = currentHealth;
+            UpdateHealthText();
         }
 
     }
@@ -88,5 +93,11 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
         // Unfreeze the movement of the camera or other relevant objects
+    }
+
+    // Method to update the health text
+    private void UpdateHealthText()
+    {
+        healthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
     }
 }

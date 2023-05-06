@@ -203,9 +203,7 @@ GameObject:
   - component: {fileID: 621354338916355672}
   - component: {fileID: 4284515112000534826}
   - component: {fileID: 3894051598373869787}
-  - component: {fileID: 342395258513181687}
   - component: {fileID: 4952027159430412301}
-  - component: {fileID: -6155751969385071499}
   m_Layer: 0
   m_Name: GreaterSpell
   m_TagString: Projectile
@@ -288,25 +286,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7346692257855548796}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &342395258513181687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7346692257855548796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6161ded1a21f2aa4bb57257f59c6dba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeOut: 1
-  detachChildren: 0
 --- !u!54 &4952027159430412301
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -323,17 +307,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6155751969385071499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7346692257855548796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77fce4f6fe0dc3e448d5e89f98ac79ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageIncreasePerSecond: 2

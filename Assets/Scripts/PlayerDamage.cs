@@ -5,48 +5,27 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-
     public int damageAmount = 10;
-
-    private void Start()
-    {
-        currentHealth = maxHealth;
-    }
+    public int damageIncreasePerSecond = 2;
+    private float timeElapsed = 0f;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Debug.Log("Enemy collided with " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("Player"))
         {
-            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                enemyHealth.TakeDamage(damageAmount);
-            }
-        }
-        else if (collision.gameObject.CompareTag("Projectile"))
-        {
-            // Check if the collision is with the player
-            if (collision.contacts.Length > 0 && collision.contacts[0].otherCollider.gameObject == gameObject)
-            {
-                TakeDamage(damageAmount);
+                int currentDamageAmount = damageAmount + (int)(timeElapsed * damageIncreasePerSecond);
+                Debug.Log("Dealing " + currentDamageAmount + " damage to " + collision.gameObject.name);
+                playerHealth.TakeDamage(currentDamageAmount);
             }
         }
     }
 
-    private void TakeDamage(int damage)
+    private void Update()
     {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    private void Die()
-    {
-        // Handle player death here
+        timeElapsed += Time.deltaTime;
     }
 }
