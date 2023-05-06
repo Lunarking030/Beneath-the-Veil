@@ -699,6 +699,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &30049963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7851100198881355062, guid: 37bfc9ddb04450f43b49c1d68dc2b3f0, type: 3}
+  m_PrefabInstance: {fileID: 1117747809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &30230834
 Mesh:
   m_ObjectHideFlags: 0
@@ -3423,7 +3434,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293220552}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 72ca15068cc71ff4ea7c76a889275cfe, type: 2}
   m_audioClip: {fileID: 8300000, guid: 74974738a01c3a1439ee13dc5b5773e5, type: 3}
@@ -14518,7 +14529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 72ca15068cc71ff4ea7c76a889275cfe, type: 2}
-  resolutionDropDown: {fileID: 0}
+  resolutionDropDown: {fileID: 30049963}
 --- !u!43 &1118981895
 Mesh:
   m_ObjectHideFlags: 0
