@@ -1,4 +1,4 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -14,9 +14,11 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        //public GameObject statKeeper;
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
-        public float MoveSpeed = 2.0f;
+        public float MoveSpeed = 2f;
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
@@ -87,6 +89,8 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
+        private bool _canDoubleJump = true;
+
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
@@ -106,6 +110,9 @@ namespace StarterAssets
 
         //Game Manager
         public GameManager gm;
+
+        public GameObject axeSlashFX;
+        public GameObject swordSlashFX;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -127,7 +134,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
                 return _playerInput.currentControlScheme == "KeyboardMouse";
 #else
-				return false;
+                return false;
 #endif
             }
         }
@@ -144,15 +151,17 @@ namespace StarterAssets
 
         private void Start()
         {
+            //tempSpeed = statKeeper.gameObject.GetComponent<Stats>().speed; // set the speed to the speed in the stat block
+
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM 
+#if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
 #else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
+            Debug.LogError("Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
             AssignAnimationIDs();
@@ -164,6 +173,8 @@ namespace StarterAssets
 
         private void Update()
         {
+            //MoveSpeed = statKeeper.gameObject.GetComponent<Stats>().speed; // check constantly for updates in speed
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -348,6 +359,7 @@ namespace StarterAssets
             {
                 if (_hasAnimator)
                 {
+                    Instantiate(swordSlashFX, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
                     _animator.SetTrigger(_animIDSecondaryMeleeSword);
                 }
             }
@@ -356,6 +368,7 @@ namespace StarterAssets
             {
                 if (_hasAnimator)
                 {
+                    Instantiate(axeSlashFX, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
                     _animator.SetTrigger(_animIDSecondaryMeleeAxe);
                 }
             }
@@ -370,6 +383,7 @@ namespace StarterAssets
             }
         }
 
+        /*
         private void JumpAndGravity()
         {
             if (Grounded)
@@ -437,6 +451,87 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+        }
+        */
+
+        private void JumpAndGravity()
+        {
+            if (Grounded)
+            {
+                // reset the fall timeout timer
+                _fallTimeoutDelta = FallTimeout;
+
+                // update animator if using character
+                if (_hasAnimator)
+                {
+                    _animator.SetBool(_animIDJump, false);
+                    _animator.SetBool(_animIDFreeFall, false);
+                }
+
+                // stop our velocity dropping infinitely when grounded
+                if (_verticalVelocity < 0.0f)
+                {
+                    _verticalVelocity = -2f;
+                }
+
+                // Jump
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                {
+                    // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDJump, true);
+                    }
+
+                    // set _canDoubleJump to true to refresh that ability
+                    _canDoubleJump = true;
+                }
+
+                // jump timeout
+                if (_jumpTimeoutDelta >= 0.0f)
+                {
+                    _jumpTimeoutDelta -= Time.deltaTime;
+                }
+            }
+            else
+            {
+                // reset the jump timeout timer
+                _jumpTimeoutDelta = JumpTimeout;
+
+                // fall timeout
+                if (_fallTimeoutDelta >= 0.0f)
+                {
+                    _fallTimeoutDelta -= Time.deltaTime;
+                }
+                else
+                {
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDFreeFall, true);
+                    }
+                }
+                // if we are not grounded, do not jump
+                _input.jump = false;
+            }
+
+            // Double Jump
+            if (Input.GetKeyDown("e") && _canDoubleJump)
+            {
+                _verticalVelocity = Mathf.Sqrt(JumpHeight * -4f * Gravity);
+                _canDoubleJump = false;
+            }
+
+            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+            if (_verticalVelocity < _terminalVelocity)
+            {
+                _verticalVelocity += Gravity * Time.deltaTime;
+            }
+
+
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
