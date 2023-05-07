@@ -62,7 +62,7 @@ public class Stats : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("m"))
+        if (Input.GetKeyDown("tab"))
         {
             if (shopOpen==true)
             {
