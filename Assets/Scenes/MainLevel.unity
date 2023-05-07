@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6871,11 +6871,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251058118}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.1508985, y: 2.591765, z: 1.545423}
+  m_Center: {x: 0.09178103, y: 0.79588246, z: -0.02013618}
 --- !u!1001 &252043148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11523,11 +11523,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433068155}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.8842118, y: 2.8997102, z: 1.9553368}
+  m_Center: {x: -0.055600643, y: 0.9498551, z: 0.026423365}
 --- !u!4 &434781520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 30eadeff2df12ad4fa3af72b710dc5c7, type: 3}
@@ -14468,7 +14468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 348.2, y: 67.3}
+  m_AnchoredPosition: {x: 347, y: 59.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &553139298
@@ -14493,8 +14493,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 50 coins for new item
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ff399917ca6d07f4a839059eebe464ab, type: 2}
+  m_sharedMaterial: {fileID: 6461746086883486732, guid: ff399917ca6d07f4a839059eebe464ab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33400,8 +33400,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '? ? ?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ff399917ca6d07f4a839059eebe464ab, type: 2}
+  m_sharedMaterial: {fileID: 6461746086883486732, guid: ff399917ca6d07f4a839059eebe464ab, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34350,8 +34350,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.8251095, y: 4.213361, z: 3.3909845}
+  m_Center: {x: 0.040363867, y: 1.6066802, z: 0.5770067}
 --- !u!54 &1309157717
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34401,7 +34401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerTick: 5
-  timeBetweenTicks: 2
+  timeBetweenTicks: 1.5
 --- !u!1001 &1312618578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55451,8 +55451,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.2874184, z: 1.4435315}
-  m_Center: {x: 7.4581097e-10, y: 0.6437092, z: 0.22176531}
+  m_Size: {x: 1.7137239, y: 2.4437256, z: 1.5066662}
+  m_Center: {x: 0.15286674, y: 0.7218628, z: 0.19019789}
 --- !u!54 &1978270382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -59822,6 +59822,10 @@ PrefabInstance:
       propertyPath: damageMultiplier
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1554644605232085573, guid: 55e9ffe0fbc2fde48b34bbbf85aa712e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1554644605425857530, guid: 55e9ffe0fbc2fde48b34bbbf85aa712e, type: 3}
       propertyPath: enemyPrefab
       value: 
@@ -59980,6 +59984,10 @@ PrefabInstance:
       objectReference: {fileID: 1354685554}
     - target: {fileID: 1554644606174050117, guid: 55e9ffe0fbc2fde48b34bbbf85aa712e, type: 3}
       propertyPath: numEnemiesToSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554644606174050123, guid: 55e9ffe0fbc2fde48b34bbbf85aa712e, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1554644606929933126, guid: 55e9ffe0fbc2fde48b34bbbf85aa712e, type: 3}
