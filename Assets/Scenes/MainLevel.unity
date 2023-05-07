@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6257,7 +6257,7 @@ MonoBehaviour:
   enemyDistance: 5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &249185799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6495,7 +6495,7 @@ MonoBehaviour:
   enemyDistance: 0.7
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!195 &251058120
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11053,7 +11053,7 @@ MonoBehaviour:
   enemyDistance: 1
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!195 &433068158
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -30078,7 +30078,7 @@ MonoBehaviour:
   enemyDistance: 5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &1210898334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33062,7 +33062,7 @@ MonoBehaviour:
   enemyDistance: 2
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!95 &1309157714
 Animator:
   serializedVersion: 5
@@ -33805,7 +33805,7 @@ MonoBehaviour:
   enemyDistance: 6
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!65 &1354685560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53775,7 +53775,7 @@ MonoBehaviour:
   enemyDistance: 0.7
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!195 &1978270379
 NavMeshAgent:
   m_ObjectHideFlags: 0
