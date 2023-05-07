@@ -21,7 +21,7 @@ public class Stats : MonoBehaviour
     public GameObject shieldAbility;
     public bool shieldActiveFlag = false;
 
-    public TextMeshProUGUI healthCounter;
+    public Text healthCounter;
     public TextMeshProUGUI boneCounter;
     public GameObject shopMenu;
     private bool shopOpen = false;
@@ -45,7 +45,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthCounter.SetText(health + " / " + maxHealth);
+        healthCounter.text = health + " / " + maxHealth;
         boneCounter.SetText(coins + "");
 
         if (Input.GetKeyDown("2"))
