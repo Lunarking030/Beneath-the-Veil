@@ -10,6 +10,16 @@ TagManager:
   - Enemy
   - PlayerWeapon
   - Projectile
+  - Greater Spell
+  - Greater Blast
+  - FreezePotion
+  - Crowbar
+  - Axe Slash
+  - Sword Slash
+  - Lesser Spell
+  - Weapon
+  - blackCrowbar
+  - HealthPotion
   layers:
   - Default
   - TransparentFX
@@ -17,7 +27,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Obstacles
+  - obstacleLayer
   - Player
   - 
   - 
