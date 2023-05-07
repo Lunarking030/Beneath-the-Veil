@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     public bool isTakingAcidDamage = false;
     private float acidballDamageEndTime;
 
+
+
     private void Start()
     {
         currentHealth = maxHealth;
