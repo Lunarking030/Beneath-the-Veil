@@ -640,14 +640,14 @@ MonoBehaviour:
 
     Space - Jump
 
-    1 2 3 - Weapons
+    1 2 E - Abilities
 
     Tab
-    - Inventory
+    - Shop
 
-    Left Click - Use Weapon
+    Left Click - Primary Attack
 
-    Right Click - Zoom In
+    Right Click - Secondary Attack
 
     Esc
     - Pause Menu
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   Axe: {fileID: 0}
   Sword: {fileID: 0}
   Staff: {fileID: 0}
-  scoreText: {fileID: 0}
+  statKeeper: {fileID: 0}
 --- !u!1 &608129279
 GameObject:
   m_ObjectHideFlags: 0
