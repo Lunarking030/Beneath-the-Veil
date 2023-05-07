@@ -1,51 +1,41 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
 
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 1000;
     public int currentHealth;
     public Slider healthSlider;
-    public Text healthText;
     public GameObject gameOverScreen;
     public GameObject damageText;
-    public float acidballDamageOverTime = 5f;
-    public float acidballDamageDuration = 2f;
 
-    public bool isTakingAcidDamage = false;
-    private float acidballDamageEndTime;
-
-
+    public GameObject statKeep;
 
     private void Start()
     {
+        maxHealth = Convert.ToInt32(statKeep.gameObject.GetComponent<Stats>().maxHealth);
         currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
         Time.timeScale = 1f;
-
-        healthText = GameObject.Find("HealthText").GetComponent<Text>();
-        UpdateHealthText();
     }
 
     private void Update()
     {
-        if (isTakingAcidDamage && Time.time < acidballDamageEndTime)
-        {
-            TakeDamage(Mathf.RoundToInt(acidballDamageOverTime * Time.deltaTime));
-        }
+        healthSlider.value = statKeep.GetComponent<Stats>().health;
+        healthSlider.maxValue = statKeep.GetComponent<Stats>().maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        statKeep.gameObject.GetComponent<Stats>().health -= damage;
         DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
         indicator.SetDamageText(damage);
 
-        if (currentHealth <= 0)
+        if (statKeep.gameObject.GetComponent<Stats>().health <= 0)
         {
             Die();
             Time.timeScale = 0f;
@@ -54,30 +44,8 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            healthSlider.value = currentHealth;
-            UpdateHealthText();
+            healthSlider.value = statKeep.gameObject.GetComponent<Stats>().health;
         }
-
-    }
-
-    public void TakeAcidDamage()
-    {
-        if (!isTakingAcidDamage)
-        {
-            isTakingAcidDamage = true;
-            acidballDamageEndTime = Time.time + acidballDamageDuration;
-            StartCoroutine(ApplyAcidDamageOverTime());
-        }
-    }
-
-    private IEnumerator ApplyAcidDamageOverTime()
-    {
-        while (isTakingAcidDamage && Time.time < acidballDamageEndTime)
-        {
-            TakeDamage(Mathf.RoundToInt(acidballDamageOverTime * Time.deltaTime));
-            yield return null;
-        }
-        isTakingAcidDamage = false;
     }
 
     private void Die()
@@ -88,18 +56,26 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false); // Disable the player GameObject
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor
         Cursor.visible = true; // Make the cursor visible
+
+        // Stop the background music
+        GameObject musicObject = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        if (musicObject != null)
+        {
+            AudioSource musicSource = musicObject.GetComponent<AudioSource>();
+            if (musicSource != null)
+            {
+                musicSource.Stop();
+            }
+        }
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
+        statKeep.gameObject.GetComponent<Stats>().maxHealth = 100f;
+        statKeep.gameObject.GetComponent<Stats>().health = 100f;
+        healthSlider.value = Convert.ToInt32(statKeep.gameObject.GetComponent<Stats>().maxHealth);
         // Unfreeze the movement of the camera or other relevant objects
-    }
-
-    // Method to update the health text
-    private void UpdateHealthText()
-    {
-        healthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
     }
 }

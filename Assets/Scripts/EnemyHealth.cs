@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public float regenRate = 1.0f; // Health regenerated per second
     private int currentHealth;
     public Slider healthSlider;
+    public Text healthText;
     public UnityEngine.UI.Text nameText;
     public GameObject damageText;
     public float damageMultiplier = 1.0f;
@@ -20,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
         nameText.text = enemyName;
+        UpdateHealthText();
     }
 
     private void Update()
@@ -29,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth += Mathf.RoundToInt(regenRate * Time.deltaTime);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             healthSlider.value = currentHealth;
+            UpdateHealthText();
         }
     }
 
@@ -64,5 +67,10 @@ public class EnemyHealth : MonoBehaviour
     public void SetDamageMultiplier(float multiplier)
     {
         damageMultiplier = multiplier;
+    }
+
+    private void UpdateHealthText()
+    {
+        healthText.text = currentHealth + " / " + maxHealth;
     }
 }
